@@ -1,0 +1,36 @@
+@import "src/app/stylesheets/_variables";
+
+.container {
+  margin-top: 1rem;
+
+  @media screen and (max-width: $xs) {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__filters {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__users {
+    @media screen and (min-width: $xs) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  &__page-selector {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__info {
+    margin: 1rem;
+    font-size: 2rem;
+  }
+}

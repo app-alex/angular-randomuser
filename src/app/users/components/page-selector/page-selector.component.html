@@ -1,0 +1,25 @@
+<div class="container">
+  <div
+    class="container__button"
+    [ngClass]="{ 'container__button--disabled': page === 1 }"
+    (click)="onPreviousPage()"
+  >
+    &lsaquo;
+  </div>
+  <div
+    *ngFor="let pageIndex of pages"
+    class="container__page-display"
+    [ngClass]="{ 'container__page-display--selected': pageIndex === page }"
+    (click)="onPageChange(pageIndex)"
+  >
+    {{ pageIndex }}
+  </div>
+
+  <div
+    class="container__button"
+    [ngClass]="{ 'container__button--disabled': page === numberOfPages }"
+    (click)="onNextPage()"
+  >
+    &rsaquo;
+  </div>
+</div>

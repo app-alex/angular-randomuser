@@ -1,0 +1,38 @@
+<div class="container" *ngIf="users$ | async as users">
+  <app-filters
+    class="container__filters"
+    [countries]="getCountries(users)"
+    (onSearch)="onSearch($event)"
+    (onCountryFilter)="onCountryFilter($event)"
+  ></app-filters>
+
+  <app-page-selector
+    *ngIf="users.length"
+    class="container__page-selector"
+    [page]="page"
+    [numberOfPages]="getNumberOfPages(users.length)"
+    (pageChange)="onPageChange($event)"
+  ></app-page-selector>
+
+  <div *ngIf="!isLoading" class="container__users">
+    <app-user
+      class="container__user"
+      *ngFor="let user of getUsersByPage(users, page)"
+      [user]="user"
+    ></app-user>
+  </div>
+
+  <div class="container__info" *ngIf="!users.length && !isLoading">
+    No users found
+  </div>
+
+  <div *ngIf="isLoading" class="container__info">Loading...</div>
+
+  <app-page-selector
+    *ngIf="users.length && !isLoading"
+    class="container__page-selector"
+    [page]="page"
+    [numberOfPages]="getNumberOfPages(users.length)"
+    (pageChange)="onPageChange($event)"
+  ></app-page-selector>
+</div>

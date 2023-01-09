@@ -1,0 +1,54 @@
+@import "src/app/stylesheets/_variables";
+
+.container {
+  display: flex;
+  align-items: center;
+
+  padding: 0.8rem;
+  margin: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  @media screen and (min-width: $xs) {
+    flex-flow: column;
+  }
+
+  &__picture {
+    margin: 0.6rem;
+  }
+
+  &__img {
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        rgb(51, 51, 51) 0px 0px 0px 3px;
+
+      cursor: pointer;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &__name {
+    margin: 0.1rem;
+    font-size: 2.2rem;
+
+    @media screen and (min-width: $xs) {
+      text-align: center;
+    }
+  }
+
+  &__email {
+    margin: 0.1rem;
+    font-size: 1.6rem;
+
+    @media screen and (min-width: $xs) {
+      text-align: center;
+    }
+  }
+}

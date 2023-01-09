@@ -1,0 +1,30 @@
+<div class="container">
+  <input
+    class="container__input"
+    type="text"
+    placeholder="Search"
+    [(ngModel)]="searchWord"
+    (input)="search()"
+  />
+
+  <div class="container__country">
+    <p class="container__label">Filter by Country</p>
+    <div class="container__country-wraper" (click)="onSelectClick()">
+      <select
+        placeholder="Country"
+        [(ngModel)]="selectedCountry"
+        (change)="onSelectCountry()"
+        class="container__select"
+        [ngClass]="{ 'container__select--selected': selectedCountry }"
+      >
+        <option value="" selected>None</option>
+        <option *ngIf="selectedCountry" [value]="selectedCountry" selected>
+          {{ selectedCountry }}
+        </option>
+        <option class="container__option" *ngFor="let country of countries">
+          {{ country }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

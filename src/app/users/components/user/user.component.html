@@ -1,0 +1,20 @@
+<div class="container" *ngIf="user">
+  <div class="container__picture">
+    <img
+      class="container__img"
+      (click)="openPictureModalDialog()"
+      [src]="user.picture.thumbnail"
+      alt="User picture"
+    />
+  </div>
+
+  <div class="container__details">
+    <div class="container__name">
+      {{ user.name.first + " " + user.name.last }}
+    </div>
+
+    <div class="container__email">
+      {{ user.email }}
+    </div>
+  </div>
+</div>
